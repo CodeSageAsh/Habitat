@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Add Habit</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Add a Habit</h1>
+
+        <form action="/habits/add" method="post" class="card formBox">
+            <label for="name">Habit Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+
+            <label for="goal">Goal:</label>
+            <input type="text" id="goal" name="goal" placeholder="Example: 5 times a week" required>
+
+            <label for="streak">Current Streak:</label>
+            <input type="number" id="streak" name="streak" min="0" value="0" required>
+
+            <label for="note">Note:</label>
+            <textarea id="note" name="note" rows="4"></textarea>
+
+            <button type="submit">Save Habit</button>
+        </form>
+
+        <nav class="navLinks">
+            <a href="/">Home</a>
+            <a href="/habits">View Habits</a>
+        </nav>
+    </main>
+</body>
+
+</html>

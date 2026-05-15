@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Edit Habit</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Edit Habit</h1>
+
+        <form action="/habits/<%= habit._id %>/edit" method="post" class="card formBox">
+            <label for="name">Habit Name:</label>
+            <input type="text" id="name" name="name" value="<%= habit.name %>" required>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" value="<%= habit.category %>" required>
+
+            <label for="goal">Goal:</label>
+            <input type="text" id="goal" name="goal" value="<%= habit.goal %>" required>
+
+            <label for="streak">Current Streak:</label>
+            <input type="number" id="streak" name="streak" min="0" value="<%= habit.streak %>" required>
+
+            <label for="note">Note:</label>
+            <textarea id="note" name="note" rows="4"><%= habit.note %></textarea>
+
+            <button type="submit">Update Habit</button>
+        </form>
+
+        <nav class="navLinks">
+            <a href="/habits">Cancel</a>
+            <a href="/">Home</a>
+        </nav>
+    </main>
+</body>
+
+</html>

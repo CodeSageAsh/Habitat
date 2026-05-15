@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Saved Habits</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Saved Habits</h1>
+
+        <div class="filterBox">
+            <a href="/habits" class="<%= filter === 'all' ? 'selectedFilter' : '' %>">All</a>
+            <a href="/habits?filter=active" class="<%= filter === 'active' ? 'selectedFilter' : '' %>">Active</a>
+            <a href="/habits?filter=inactive" class="<%= filter === 'inactive' ? 'selectedFilter' : '' %>">Inactive</a>
+        </div>
+
+        <% if (habits.length===0) { %>
+            <section class="card">
+                <p>No habits found for this filter.</p>
+            </section>
+            <% } else { %>
+                <% habits.forEach(habit=> { %>
+                    <section class="card">
+                        <div class="habitHeader">
+                            <h2>
+                                <%= habit.name %>
+                            </h2>
+
+                            <% if (habit.active) { %>
+                                <span class="activeBadge">Active</span>
+                                <% } else { %>
+                                    <span class="inactiveBadge">Inactive</span>
+                                    <% } %>
+                        </div>
+
+                        <p><strong>Category:</strong>
+                            <%= habit.category %>
+                        </p>
+                        <p><strong>Goal:</strong>
+                            <%= habit.goal %>
+                        </p>
+                        <p><strong>Current Streak:</strong>
+                            <%= habit.streak %> days
+                        </p>
+
+                        <div class="strengthMeter">
+                            <div class="segment <%= habit.streak >= 0 ? 'filled1' : '' %>"></div>
+                            <div class="segment <%= habit.streak >= 5 ? 'filled2' : '' %>"></div>
+                            <div class="segment <%= habit.streak >= 10 ? 'filled3' : '' %>"></div>
+                            <div class="segment <%= habit.streak >= 20 ? 'filled4' : '' %>"></div>
+                            <div class="segment <%= habit.streak >= 30 ? 'filled5' : '' %>"></div>
+                        </div>
+
+                        <p class="strengthText">Habit Strength: <%= getStrength(habit.streak) %>
+                        </p>
+
+                        <p><strong>Note:</strong>
+                            <%= habit.note %>
+                        </p>
+
+                        <div class="buttonRow">
+                            <form action="/habits/<%= habit._id %>/increment" method="post">
+                                <button type="submit">Increase Streak</button>
+                            </form>
+
+                            <form action="/habits/<%= habit._id %>/toggle" method="post">
+                                <% if (habit.active) { %>
+                                    <button type="submit" class="secondaryBtn">Mark Inactive</button>
+                                    <% } else { %>
+                                        <button type="submit" class="secondaryBtn">Mark Active</button>
+                                        <% } %>
+                            </form>
+
+                            <a href="/habits/<%= habit._id %>/edit" class="editBtn">Edit</a>
+
+                            <form action="/habits/<%= habit._id %>/delete" method="post">
+                                <button type="submit" class="deleteBtn">Delete</button>
+                            </form>
+                        </div>
+                    </section>
+                    <% }) %>
+                        <% } %>
+
+                            <nav class="navLinks">
+                                <a href="/">Home</a>
+                                <a href="/habits/add">Add Habit</a>
+                            </nav>
+    </main>
+</body>
+
+</html>

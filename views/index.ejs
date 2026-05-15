@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Habitat</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Habitat</h1>
+
+        <p class="intro">
+            Habitat is a simple habit tracker that helps users stay consistent with personal goals.
+        </p>
+
+        <section class="card">
+            <h2>Daily Motivation</h2>
+            <p id="adviceText">Loading advice...</p>
+        </section>
+
+        <section class="card">
+            <h2>Active Habits</h2>
+
+            <% if (habits.length===0) { %>
+                <p>No active habits yet.</p>
+                <% } else { %>
+                    <% habits.forEach(habit=> { %>
+                        <div class="habitMini">
+                            <h3>
+                                <%= habit.name %>
+                            </h3>
+                            <p><strong>Streak:</strong>
+                                <%= habit.streak %> days
+                            </p>
+
+                            <div class="strengthMeter">
+                                <div class="segment <%= habit.streak >= 0 ? 'filled1' : '' %>"></div>
+                                <div class="segment <%= habit.streak >= 5 ? 'filled2' : '' %>"></div>
+                                <div class="segment <%= habit.streak >= 10 ? 'filled3' : '' %>"></div>
+                                <div class="segment <%= habit.streak >= 20 ? 'filled4' : '' %>"></div>
+                                <div class="segment <%= habit.streak >= 30 ? 'filled5' : '' %>"></div>
+                            </div>
+
+                            <p class="strengthText">
+                                <%= getStrength(habit.streak) %>
+                            </p>
+
+                            <form action="/habits/<%= habit._id %>/increment" method="post">
+                                <button type="submit">Increase Streak</button>
+                            </form>
+                        </div>
+                        <% }) %>
+                            <% } %>
+        </section>
+
+        <nav class="navLinks">
+            <a href="/habits/add">Add Habit</a>
+            <a href="/habits">View Habits</a>
+        </nav>
+    </main>
+
+    <script>
+        fetch("/api/advice")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("adviceText").textContent = data.advice;
+            })
+            .catch(() => {
+                document.getElementById("adviceText").textContent = "Stay consistent today.";
+            });
+    </script>
+</body>
+
+</html>

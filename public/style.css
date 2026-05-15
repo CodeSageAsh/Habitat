@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    background-color: #f1f5f2;
+    color: #1f2d24;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    width: 80%;
+    max-width: 850px;
+    margin: 40px auto;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+.intro {
+    font-size: 18px;
+}
+
+.card {
+    background-color: white;
+    color: #1f2d24;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #d9e3dc;
+}
+
+.navLinks {
+    margin-top: 25px;
+}
+
+.navLinks a {
+    display: inline-block;
+    margin-right: 12px;
+    padding: 10px 14px;
+    background-color: #2f6f4e;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.formBox {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 12px;
+    font-size: 16px;
+}
+
+input,
+textarea {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 15px;
+}
+
+button {
+    margin-top: 18px;
+    padding: 10px;
+    background-color: #2f6f4e;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.habitMini {
+    padding: 15px 0;
+    border-top: 1px solid #d9e3dc;
+}
+
+.habitMini:first-of-type {
+    border-top: none;
+}
+
+.habitMini h3 {
+    margin-bottom: 5px;
+    font-size: 21px;
+}
+
+.strengthMeter {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+.segment {
+    height: 15px;
+    flex: 1;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+}
+
+.filled1 {
+    background-color: #3b82f6;
+}
+
+.filled2 {
+    background-color: #4f70f4;
+}
+
+.filled3 {
+    background-color: #665eea;
+}
+
+.filled4 {
+    background-color: #7c4dde;
+}
+
+.filled5 {
+    background-color: #9333ea;
+}
+
+.strengthText {
+    color: #5b37c8;
+    font-weight: 600;
+}
+
+.habitHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activeBadge,
+.inactiveBadge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.activeBadge {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.inactiveBadge {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.buttonRow {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.buttonRow form {
+    margin: 0;
+}
+
+.buttonRow button,
+.buttonRow .editBtn {
+    height: 39px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    margin-top: 0;
+}
+
+.secondaryBtn {
+    background-color: #5b37c8;
+}
+
+.filterBox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.filterBox a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 13px;
+    background-color: white;
+    color: #2f6f4e;
+    border: 1px solid #2f6f4e;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.filterBox .selectedFilter {
+    background-color: #2f6f4e;
+    color: white;
+}
+
+.editBtn {
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.deleteBtn {
+    background-color: #b91c1c;
+}
