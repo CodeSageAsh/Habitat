@@ -10,6 +10,6 @@ APIs: Advice Slip API (https://api.adviceslip.com/advice)
 
 Contact Email: apalwe@umd.edu
 
-Deployed App Link: TO_BE_ADDED
+Deployed App Link: https://habitat-qpx5.onrender.com/
 
 AI Use: 1. ChatGPT
